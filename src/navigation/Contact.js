@@ -8,13 +8,11 @@ import 'semantic-ui-css/semantic.min.css';
 class Contact extends Component {
   constructor() {
     super();
-    this.state = { name: '', email: '', submittedName: '', submittedEmail: '' }
+    this.state = { succes: false, error: false, name: '', email: '', message: '', submittedName: '', submittedEmail: '', submittedMessage: '' }
   }
-  handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
     const { name, email } = this.state
-
     this.setState({ submittedName: name, submittedEmail: email })
   }
 
@@ -22,11 +20,11 @@ class Contact extends Component {
     return (
       <div id="contact">
         <div>
-          <Form success error>
+          <Form method='POST'>
             <Form.Group widths='equal'>
               <Form.Field control={Input} label='Name' placeholder='Name' />
             </Form.Group>
-            <Form.Field control={TextArea} label='About' placeholder='Tell us more about you...' />
+            <Form.Field control={TextArea} label='About' placeholder='Tell me more about you...' />
             <Form.Input label='Email' placeholder='joe@schmoe.com' />
             <Message
               success
