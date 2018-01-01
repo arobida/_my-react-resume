@@ -2,5 +2,12 @@
   "short_name": "Arfolio",
   "name": "My Resume Built With React",
   "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "waving-hand.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
   "display": "standalone"
 }
