@@ -24,10 +24,10 @@ class Projects extends Component {
     axios({
       method: 'get',
       url: url,
-      auth: {
-        username: creds.username,
-        password: creds.password
-      }
+      // auth: {
+      //   username: creds.username,
+      //   password: creds.password
+      //}
     })
       .then(res => {
         var id = res.data.id;
