@@ -4,28 +4,43 @@ import { Button, Icon, Form, Message, Checkbox, Input, Radio, Select, TextArea }
 import 'semantic-ui-css/semantic.min.css';
 
 //Use conditional rendering based on and error or success state to display a message and either send or do not send the email
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
 
 class Contact extends Component {
-  constructor() {
-    super();
-    this.state = { succes: false, error: false, name: '', email: '', message: '', submittedName: '', submittedEmail: '', submittedMessage: '' }
+  constructor(props) {
+    super(props);
+    this.state = { success: false, error: false, name: '', email: '', message: '', submittedName: '', submittedEmail: '', submittedMessage: '' }
   }
 
-  handleSubmit = () => {
-    const { name, email } = this.state
-    this.setState({ submittedName: name, submittedEmail: email })
-  }
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state })
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
 
   render() {
+    const { name, email, message } = this.state;
     return (
-      <div id="contact">
+      <div id="contactMe">
         <div>
-          <Form method='POST'>
+          <Form name='contact' data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
             <Form.Group widths='equal'>
-              <Form.Field control={Input} label='Name' placeholder='Name' />
+              <Form.Field control={Input} type='text' value={this.name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
             </Form.Group>
-            <Form.Field control={TextArea} label='About' placeholder='Tell me more about you...' />
-            <Form.Input label='Email' placeholder='joe@schmoe.com' />
+            <Form.Field control={TextArea} type='text' value={this.message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
+            <Form.Input value={this.email} onChange={this.handleChange} type='email' label='Email' placeholder='joe@schmoe.com' required/>
             <Message
               success
               header='Message Sent'
@@ -36,7 +51,7 @@ class Contact extends Component {
               header='Invalid Email'
               content='You know better try a real email...'
             />
-            <Button animated color="orange">
+            <Button animated color="orange" onClick={this.handleSubmit}>
               <Button.Content visible>Submit{" "}<Icon name='send outline' /></Button.Content>
               <Button.Content hidden>
                 Send?{" "}<Icon name='send outline' />
