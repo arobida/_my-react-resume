@@ -13,19 +13,29 @@ const encode = (data) => {
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = { success: false, error: false, name: '', email: '', message: '', submittedName: '', submittedEmail: '', submittedMessage: '' }
+    this.state = { sentOrNot: '',name: '', email: '', message: '', submittedName: '', submittedEmail: '', submittedMessage: '' }
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
-    fetch("/", {
+    axios("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
     })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error));
+      .then(() => this.setState({message: 
+            <Message
+              success
+              header='Message Sent'
+              content="Thank you for contacting me I will get in touch as soon as I can..."
+            />}))
+      .catch(error => this.setState({message: 
+            <Message
+              error
+              header='Invalid Email'
+              content='You know better try a real email...'
+            />}));
 
     e.preventDefault();
   };
@@ -35,22 +45,13 @@ class Contact extends Component {
     return (
       <div id="contactMe">
         <div>
-          <Form name='contact' data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+          <Form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
             <Form.Group widths='equal'>
-              <Form.Field control={Input} type='text' value={this.name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
+            <Form.Field control={Input} type='text' name='name' value={this.name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
             </Form.Group>
-            <Form.Field control={TextArea} type='text' value={this.message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
-            <Form.Input value={this.email} onChange={this.handleChange} type='email' label='Email' placeholder='joe@schmoe.com' required/>
-            <Message
-              success
-              header='Message Sent'
-              content="Thank you for contacting me I will get in touch as soon as I can..."
-            />
-            <Message
-              error
-              header='Invalid Email'
-              content='You know better try a real email...'
-            />
+            <Form.Field control={TextArea} type='text' name='message' value={this.message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
+            <Form.Input name='email' value={this.email} onChange={this.handleChange} type='email' label='Email' placeholder='joe@schmoe.com' required/>
+            {this.state.sentOrNot}
             <Button animated color="orange" onClick={this.handleSubmit}>
               <Button.Content visible>Submit{" "}<Icon name='send outline' /></Button.Content>
               <Button.Content hidden>
