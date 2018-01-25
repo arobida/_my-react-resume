@@ -19,7 +19,7 @@ class Contact extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
-    axios("/", {
+    axios("/contacts", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
@@ -51,7 +51,7 @@ class Contact extends Component {
             </Form.Group>
             <Form.Field control={TextArea} type='text' name='message' value={this.message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
             <Form.Input name='email' value={this.email} onChange={this.handleChange} type='email' label='Email' placeholder='joe@schmoe.com' required/>
-            {this.state.sentOrNot}
+              <p>{this.state.sentOrNot}</p>
             <Button animated color="orange" onClick={this.handleSubmit}>
               <Button.Content visible>Submit{" "}<Icon name='send outline' /></Button.Content>
               <Button.Content hidden>
