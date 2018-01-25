@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import { Button, Icon, Grid, Image, Header, List, Container, Menu, Responsive, Modal, Card, Divider } from 'semantic-ui-react';
+import { Button, Icon, Grid, Image, Header, List, Segment, Responsive, Modal, Card, Divider } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import Projects from './navigation/Projects';
 import Experience from './navigation/Experience';
@@ -105,10 +105,11 @@ class App extends Component {
           <Grid.Column width={11}>
             <Router>
               <div>
+                <Segment>
                 <Navi activeOnlyWhenExact={true} to="/" label="Experience" />
                 <Navi to="/projects" label="Projects" />
                 <Navi to="/contact" label="Contact" />
-                <br />
+                </Segment>
                 <Route exact path="/" component={Experience} />
                 <Route path="/projects" component={Projects} />
                 <Route path="/contact" component={Contact} />
