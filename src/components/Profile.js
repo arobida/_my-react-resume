@@ -14,10 +14,10 @@ class Profile extends Component {
   render() {
     return (
       <Responsive as={Grid.Column} width={4} minWidth={650} maxWidth={2559}>
-          <h2 id="header">
+        <Card fluid>
+           <h2 id="header">
           Andrew's React Resume
           </h2>
-        <Card fluid>
           <Card.Content>
           <Image src='https://pbs.twimg.com/profile_images/920689023206617090/9i3sb1Nt_400x400.jpg' size='medium' rounded/>
           <Divider horizontal>Info</Divider>

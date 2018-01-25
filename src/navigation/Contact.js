@@ -13,13 +13,13 @@ const encode = (data) => {
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = { sentOrNot: '',name: '', email: '', message: '', submittedName: '', submittedEmail: '', submittedMessage: '' }
+    this.state = { sentOrNot: null,name: '', email: '', message: '', submittedName: '', submittedEmail: '', submittedMessage: '' }
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
-    axios("/contact", {
+    axios("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })

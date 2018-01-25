@@ -102,7 +102,7 @@ class App extends Component {
         </Responsive>
         <Grid columns={2} divided centered>
           <Profile />
-          <Grid.Column width={11}>
+          <Grid.Column width={12}>
             <Router>
               <div>
                 <Segment>
