@@ -90,7 +90,7 @@ class Projects extends Component {
     let content;
 
     if (this.state.loader == true) {
-      content = <Dimmer as="div" active><Loader>Loading...</Loader></Dimmer>;
+      content = <Dimmer as="div" active page><Loader>Loading...</Loader></Dimmer>;
     } else if (this.state.loader == false) {
       content = this.state.projects
     } else if (this.state.error == true) {

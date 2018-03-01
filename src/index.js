@@ -104,7 +104,7 @@ class App extends Component {
           <Profile />
           <Grid.Column width={12}>
             <Router>
-              <div>
+              <div style={{marginRight:'10px'}}>
                 <Segment>
                 <Navi activeOnlyWhenExact={true} to="/" label="Experience" />
                 <Navi to="/projects" label="Projects" />
