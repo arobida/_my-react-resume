@@ -13,24 +13,28 @@ function encode(data) {
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = { sentOrNot: null,name: '', email: '', message: '', submittedName: '', submittedEmail: '', submittedMessage: '' }
+    this.state = { name: '', email: '', message: '', notify: null }
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
-    axios("/", {
+    axios("https://arfolio.netlify.com/contact", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
     })
-      .then(() => this.setState({message: 
+      .then(() => this.setState({notify: 
             <Message
               success
               header='Message Sent'
               content="Thank you for contacting me I will get in touch as soon as I can..."
-            />}))
-      .catch(error => this.setState({message: 
+            />,
+            name:'',
+            email:'',
+            message:''
+      }))
+      .catch(error => this.setState({notify: 
             <Message
               error
               header='Invalid Email'
