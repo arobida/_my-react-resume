@@ -19,7 +19,7 @@ class Contact extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
-    axios("#", {
+    axios("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
@@ -45,7 +45,7 @@ class Contact extends Component {
     return (
       <div id="contactMe">
         <div>
-          <Form name="form-name" value="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+          <Form name="contact" method="post" action="/contact" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
             <input type="hidden" name="form-name" value="contact" />
             <Form.Input control={Input} name='name' type='name' value={name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
             <Form.Input control={TextArea} name='message' value={message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
