@@ -24,6 +24,7 @@ class Projects extends Component {
     axios({
       method: 'get',
       url: url,
+      // authentication is done through netlify other wise use this method
       // auth: {
       //   username: creds.username,
       //   password: creds.password
@@ -34,8 +35,14 @@ class Projects extends Component {
         console.log(typeof (res), res)
         let project = res.data.map((repo) => {
           let card;
-          let content;
+          // con rendering for repos with the _ character this is how I filter my repos so that I only show the ones I want
+          let impRepos;
+          let repos=repo.name;
+          if(repos.match(/_/gi)=='_'){
+            impRepos=repo.name;
+          }
           // con rendering the preview link
+          let content;
           if (repo.homepage == null) {
             content = "No preview available";
           } else {
@@ -43,7 +50,10 @@ class Projects extends Component {
           }
 
           if (repo.name.charAt(0) == "_") {
-
+            const matchRepo=()=>{
+              repo.name.charAt(0)=="_"
+            }
+            console.log(repo.name.matchRepo);
           }
           return(
             <Card key={repo.id}>

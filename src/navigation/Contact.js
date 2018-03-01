@@ -1,10 +1,10 @@
-import React, { Component, img } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import { Button, Icon, Form, Message, Checkbox, Input, Radio, Select, TextArea } from 'semantic-ui-react'
+import { Button, Icon, Form, Message, Input, TextArea } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 
 //Use conditional rendering based on and error or success state to display a message and either send or do not send the email
-const encode = (data) => {
+function encode(data) {
   return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
@@ -19,7 +19,7 @@ class Contact extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
-    axios("/", {
+    axios("#", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
@@ -45,14 +45,13 @@ class Contact extends Component {
     return (
       <div id="contactMe">
         <div>
-          <Form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
-            <Form.Group widths='equal'>
-            <Form.Field control={Input} type='text' name='name' value={this.name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
-            </Form.Group>
-            <Form.Field control={TextArea} type='text' name='message' value={this.message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
-            <Form.Input name='email' value={this.email} onChange={this.handleChange} type='email' label='Email' placeholder='joe@schmoe.com' required/>
+          <Form name="form-name" value="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+            <input type="hidden" name="form-name" value="contact" />
+            <Form.Input control={Input} name='name' type='name' value={name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
+            <Form.Input control={TextArea} name='message' value={message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
+            <Form.Input control={Input} name='email' type='email' value={email} onChange={this.handleChange} label='Email' placeholder='joe@schmoe.com' required/>
               <p>{this.state.sentOrNot}</p>
-            <Button animated color="orange">
+              <Button animated color="orange" type="Submit">
               <Button.Content visible>Submit{" "}<Icon name='send outline' /></Button.Content>
               <Button.Content hidden>
                 Send?{" "}<Icon name='send outline' />
