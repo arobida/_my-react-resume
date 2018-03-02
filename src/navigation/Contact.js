@@ -19,7 +19,7 @@ class Contact extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
-    axios("http://5a9889dca6188f7e7ffdd984.arfolio.netlify.com", {
+    axios("/contact", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
@@ -49,8 +49,8 @@ class Contact extends Component {
     return (
       <div id="contactMe">
         <div>
-          <Form name="form-name" method="post" data-netlify="true" onSubmit={this.handleSubmit}>
-            <input type="hidden" data-netlify-honeypot="bot-field" name="form-name" value="contact" />
+          <Form name="contact" value="contact" method="post" data-netlify="true" onSubmit={this.handleSubmit} netlify="true">
+            <input type="hidden" data-netlify-honeypot="bot-field" name="contact" value="contact" />
             <Form.Input control={Input} name='name' type='name' value={name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
             <Form.Input control={TextArea} name='message' value={message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
             <Form.Input control={Input} name='email' type='email' value={email} onChange={this.handleChange} label='Email' placeholder='joe@schmoe.com' required/>
