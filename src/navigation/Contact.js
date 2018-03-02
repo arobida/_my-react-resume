@@ -4,11 +4,11 @@ import { Button, Icon, Form, Message, Input, TextArea } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 
 //Use conditional rendering based on and error or success state to display a message and either send or do not send the email
-function encode(data) {
-  return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-}
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
 
 class Contact extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class Contact extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
-    axios("http://arfolio.netlify.com/contact", {
+    axios("http://5a9889dca6188f7e7ffdd984.arfolio.netlify.com", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
@@ -37,8 +37,8 @@ class Contact extends Component {
       .catch(error => this.setState({notify: 
             <Message
               error
-              header='Invalid Email'
-              content='You know better try a real email...'
+              header='Oooops!'
+              content='Something went wrong try again later...'
             />}));
 
     e.preventDefault();
@@ -49,12 +49,11 @@ class Contact extends Component {
     return (
       <div id="contactMe">
         <div>
-          <Form name="contact" method="post" action="/contact" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
-            <input type="hidden" name="form-name" value="contact" />
+          <Form name="form-name" method="post" data-netlify="true" onSubmit={this.handleSubmit}>
+            <input type="hidden" data-netlify-honeypot="bot-field" name="form-name" value="contact" />
             <Form.Input control={Input} name='name' type='name' value={name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
             <Form.Input control={TextArea} name='message' value={message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
             <Form.Input control={Input} name='email' type='email' value={email} onChange={this.handleChange} label='Email' placeholder='joe@schmoe.com' required/>
-              <p>{this.state.sentOrNot}</p>
               <Button animated color="orange" type="Submit">
               <Button.Content visible>Submit{" "}<Icon name='send outline' /></Button.Content>
               <Button.Content hidden>
@@ -62,6 +61,7 @@ class Contact extends Component {
               </Button.Content>
             </Button>
           </Form>
+          <div style={{marginTop:'15px'}}>{this.state.notify}</div>
         </div>
       </div>
     );
