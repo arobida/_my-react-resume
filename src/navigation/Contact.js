@@ -49,10 +49,10 @@ class Contact extends Component {
     return (
       <div id="contactMe">
         <div>
-          <Form name="contact" value="contact" method="post" data-netlify="true" onSubmit={this.handleSubmit} netlify="true">
-            <input type="hidden" data-netlify-honeypot="bot-field" name="contact" value="contact" />
+          <Form name="contact" method="post" data-netlify="true" onSubmit={this.handleSubmit}>
+            <input type="hidden" data-netlify-honeypot="bot-field" name="form-name" value="contact" />
             <Form.Input control={Input} name='name' type='name' value={name} onChange={this.handleChange} label='Name' placeholder='Name' autoFocus required/>
-            <Form.Input control={TextArea} name='message' value={message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
+            <Form.Input control={TextArea} name='message' type='message' value={message} onChange={this.handleChange} label='About' placeholder='Tell me more about you...' required/>
             <Form.Input control={Input} name='email' type='email' value={email} onChange={this.handleChange} label='Email' placeholder='joe@schmoe.com' required/>
               <Button animated color="orange" type="Submit">
               <Button.Content visible>Submit{" "}<Icon name='send outline' /></Button.Content>
