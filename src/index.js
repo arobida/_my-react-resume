@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <div id="app">
         <Responsive as="h2" maxWidth={650}>
-          <h2 id="headerMobile">
+          <h2 id="headerMobile" style={{textShadow:'3px 3px #3333'}}>
             Andrew's React Resume
           </h2>
         </Responsive>
@@ -105,7 +105,7 @@ class App extends Component {
           <Grid.Column width={12}>
             <Router>
               <div style={{marginRight:'10px'}}>
-                <Segment>
+                <Segment style={{boxShadow:'var(--shadow)'}}>
                 <Navi activeOnlyWhenExact={true} to="/" label="Experience" />
                 <Navi to="/projects" label="Projects" />
                 <Navi to="/contact" label="Contact" />

@@ -14,7 +14,7 @@ class Experience extends Component {
   render() {
     return (
       <div id="experience">
-        <Card fluid id="expCard">
+        <Card fluid id="expCard" style={{boxShadow:'var(--shadow)'}}>
           <Card.Content>
             <Card.Header>Front End Developer</Card.Header>
             <Card.Meta>@Freelance 2016-Present</Card.Meta>

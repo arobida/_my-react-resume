@@ -1,10 +1,14 @@
+:root {
+  --colorOldBrowsers:#00c6ff;  /* fallback for old browsers */
+  --colorStandardBowsers: -webkit-linear-gradient(to right, #0072ff, #00c6ff);/* Chrome 10-25, Safari 5.1-6 */
+  --colorNewBrowsers: linear-gradient(to right, #0072ff, #00c6ff);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  --shadow:2px 5px 12px -1px rgba(0, 0, 0, 0.56);
+}
 body{
   margin-top:8px;
-  background: #00c6ff;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+  background:var(--colorOldBrowsers);
+  background:var(--colorStandardBrowsers);
+  background:var(--colorNewBrowsers);
 }
 #header{
   text-align: center;
@@ -28,8 +32,9 @@ background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, F
   width:60%;
 }
 #menu{
-  margin:.1em;
+  margin:.3em;
   display: inline-block;
+  padding:5px;
 }
 #menuItems{
   color:#E72564;

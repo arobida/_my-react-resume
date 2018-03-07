@@ -14,8 +14,8 @@ class Profile extends Component {
   render() {
     return (
       <Responsive as={Grid.Column} width={4} minWidth={650} maxWidth={2559}>
-        <Card fluid>
-           <h2 id="header">
+        <Card fluid style={{boxShadow:'var(--shadow)'}}>
+           <h2 id="header" style={{textShadow:'3px 3px #3333'}}>
           Andrew's React Resume
           </h2>
           <Card.Content>
