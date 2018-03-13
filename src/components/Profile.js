@@ -23,7 +23,9 @@ class Profile extends Component {
           <Divider horizontal>Info</Divider>
             <Card.Header>Andrew Robida</Card.Header>
             <Card.Meta>Front End Developer</Card.Meta>
-            <Card.Description>I am a passionate front end dev that loves thinking in React! Would love to join a great team to contribute and learn best practices.</Card.Description>
+            <Card.Description>
+              I am a passionate front end dev that loves thinking in React! I build amazing, performative, and modern websites using the latest technology that gives your end user a great experience while saving you money! Would also love to join a great team to build awesome products and learn best practices.
+            </Card.Description>
           </Card.Content>
           <Card.Content extra>
             <List animated verticalAlign="middle">
