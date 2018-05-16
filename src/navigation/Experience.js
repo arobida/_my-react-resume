@@ -58,7 +58,7 @@ Implement and refine SEO strategies and improve conversion rate
             <Card.Header>Logistics Specialist</Card.Header>
             <Card.Meta>@United States Marine Corps 2004-2016</Card.Meta>
             <Card.Description>
-              Being a Marine was some of the best and worst times of my life most Marines feel that way, it is a love hate relationship. Some of the positions I executed during my time were Logistics Management Specialist, Licensing Director/Examiner, Recruiting, Operator/Dispatcher. I served from one side of the country to the other as well as two succesful combat tours to Iraq/Afghanistan and three other non-combat tours in Jordan/Korea. It has given me great experience and prespective to serve my country and the global insight I received from traveling and experiencing other cultures has enlightened me in ways I never would have had I decided not to I would can't think of spending my young adult life any other way!
+              Being a Marine was some of the best and worst times of my life most Marines feel that way, it is a love hate relationship. Some of the positions I executed during my time were Logistics Management Specialist, Licensing Director/Examiner, Recruiting, Operator/Dispatcher. I served from one side of the country to the other as well as two succesful combat tours to Iraq/Afghanistan and three other non-combat tours in Jordan/Korea. It has given me great experience and prespective to serve my country and the global insight I received from traveling and experiencing other cultures has enlightened me in ways I never would have had I decided not to. I wouldn't think of spending my young adult life any other way!
             </Card.Description>
           </Card.Content>
           <Card.Content>
