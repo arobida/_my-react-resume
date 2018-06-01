@@ -21,32 +21,12 @@ body {
 #header {
   text-align: center;
   font-size: 1.8em;
-  background: #dc2424; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    #4a569d,
-    #dc2424
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    #4a569d,
-    #dc2424
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #e72564;
 }
 #headerMobile {
   text-align: center;
   font-size: 2em;
-  background: #dc2424; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    #4a569d,
-    #dc2424
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    #4a569d,
-    #dc2424
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #e72564;
 }
 #mobileImg {
   width: 60%;

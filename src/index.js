@@ -13,7 +13,8 @@ import {
   Modal,
   Card,
   Divider
-} from "semantic-ui-react";
+}
+from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import Projects from "./navigation/Projects";
 import Experience from "./navigation/Experience";
@@ -41,7 +42,6 @@ class App extends Component {
           as="h2"
           maxWidth={650}
           id="headerMobile"
-          style={{ textShadow: "3px 3px #3333" }}
         >
           Andrew's React Resume
         </Responsive>
@@ -96,7 +96,7 @@ class App extends Component {
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <List animated verticalAlign="middle">
+                  <List relax horizontal className="socialList">
                     <List.Item>
                       <a
                         target="_blank"
@@ -119,7 +119,7 @@ class App extends Component {
                     <List.Item>
                       <a
                         target="_blank"
-                        href="https://twitter.com/sweetnezzz86"
+                        href="https://twitter.com/theafr86"
                       >
                         <List.Content>
                           Twitter
@@ -172,7 +172,7 @@ class App extends Component {
 }
 
 const Navi = ({ label, to, activeOnlyWhenExact }) => (
-  <Route
+    <Route
     path={to}
     exact={activeOnlyWhenExact}
     children={({ match }) => (

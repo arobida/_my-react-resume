@@ -14,6 +14,35 @@ class Experience extends Component {
     return (
       <div id="experience">
         <Card fluid id="expCard" style={{ boxShadow: "var(--shadow)" }}>
+        <Card.Content>
+            <Card.Header>Web Developer</Card.Header>
+            <Card.Meta>@Lendit 2018 - Present</Card.Meta>
+            <Card.Description>
+              <List bulleted>
+                <List.Item>
+                  <List.Content>
+                    Design, build and deploy front end that is mobile responsive and performative
+                  </List.Content>
+                </List.Item>
+                <List.Item>
+                  <List.Content>
+                    Create an easy to read, and understand project structure with stable and reusable components
+                  </List.Content>
+                </List.Item>
+                <List.Item>
+                  <List.Content>
+                    Work with Senior Engineer on integrating api with the front end
+                  </List.Content>
+                </List.Item>
+                <List.Item>
+                  <List.Content>
+                    Assisting in rest api architecture and implementation
+                  </List.Content>
+                </List.Item>
+              </List>
+            </Card.Description>
+          </Card.Content>
+          
           <Card.Content>
             <Card.Header>Front End Developer</Card.Header>
             <Card.Meta>@Freelance 2016 - Present</Card.Meta>

@@ -15,7 +15,7 @@ class Profile extends Component {
     return (
       <Responsive as={Grid.Column} width={4} minWidth={650} maxWidth={2559}>
         <Card fluid style={{boxShadow:'var(--shadow)'}}>
-           <h2 id="header" style={{textShadow:'3px 3px #3333'}}>
+           <h2 id="header">
           Andrew's React Resume
           </h2>
           <Card.Content>
@@ -28,7 +28,7 @@ class Profile extends Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <List animated verticalAlign="middle">
+            <List horizontal className="socialList">
               <List.Item>
                 <a target="_blank" href="https://www.linkedin.com/in/andrew-robida/">
                   <List.Content>
@@ -46,7 +46,7 @@ class Profile extends Component {
                 </a>
               </List.Item>
               <List.Item>
-                <a target="_blank" href="https://twitter.com/sweetnezzz86">
+                <a target="_blank" href="https://twitter.com/theafr86">
                   <List.Content>
                     Twitter
                     <Icon name='twitter' color="orange" />
