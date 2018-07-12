@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { FadeIn } from "animate-components";
 import {
   Button,
   Icon,
@@ -13,8 +14,7 @@ import {
   Modal,
   Card,
   Divider
-}
-from "semantic-ui-react";
+} from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import Projects from "./navigation/Projects";
 import Experience from "./navigation/Experience";
@@ -38,11 +38,7 @@ class App extends Component {
   render() {
     return (
       <div id="app">
-        <Responsive
-          as="h2"
-          maxWidth={650}
-          id="headerMobile"
-        >
+        <Responsive as="h2" maxWidth={650} id="headerMobile">
           Andrew's React Resume
         </Responsive>
         <Responsive as="div" id="mobileMenu" maxWidth={650}>
@@ -117,10 +113,7 @@ class App extends Component {
                       </a>
                     </List.Item>
                     <List.Item>
-                      <a
-                        target="_blank"
-                        href="https://twitter.com/theafr86"
-                      >
+                      <a target="_blank" href="https://twitter.com/theafr86">
                         <List.Content>
                           Twitter
                           <Icon name="twitter" color="orange" />
@@ -159,9 +152,28 @@ class App extends Component {
                   <Navi to="/projects" label="Projects" />
                   <Navi to="/contact" label="Contact" />
                 </Segment>
-                <Route exact path="/" component={Experience} />
-                <Route path="/projects" component={Projects} />
-                <Route path="/contact" component={Contact} />
+                <Switch>
+                  <Route
+                    exact
+                    path="/"
+                    component={() => (
+                      <FadeIn duration="2s" component={Experience} />
+                    )}
+                  />
+                  <Route
+                    path="/projects"
+                    component={() => (
+                      <FadeIn duration="2s" component={Projects} />
+                    )}
+                  />
+                  <Route
+                    path="/contact"
+                    component={() => (
+                      <FadeIn duration="2s" component={Contact} />
+                    )}
+                  />
+                </Switch>
+                />
               </div>
             </Router>
           </Grid.Column>
@@ -172,7 +184,7 @@ class App extends Component {
 }
 
 const Navi = ({ label, to, activeOnlyWhenExact }) => (
-    <Route
+  <Route
     path={to}
     exact={activeOnlyWhenExact}
     children={({ match }) => (

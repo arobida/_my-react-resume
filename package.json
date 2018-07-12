@@ -3,6 +3,8 @@
   "description": "My portfolio site built in react, react-router, semantic-ui, and axios",
   "homepage": "https://arfolio.netlify.com/",
   "dependencies": {
+    "animate-components": "^1.4.8",
+    "animate-keyframes": "^0.1.6",
     "axios": "0.17.1",
     "https": "1.0.0",
     "netlify-cli": "^1.2.2",

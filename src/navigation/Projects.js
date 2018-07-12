@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FlipInX, FlipOutX } from "animate-components";
 import {
   Button,
   Icon,
@@ -62,22 +63,29 @@ class Projects extends Component {
             console.log(repo.name.matchRepo);
           }
           return (
-            <Card key={repo.id} style={{ boxShadow: "var(--shadow)" }}>
-              <Card.Content>
-                <h4 style={{ color: "#e91e63" }}>{repo.name.toUpperCase()}</h4>
-                <Card.Meta>
-                  Last Update: {repo.pushed_at.slice(0, 10)}
-                </Card.Meta>
-                <Card.Description>{repo.description}</Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <a id="projectLinks" target="_blank" href={repo.html_url}>
-                  GitHub
-                </a>
-                <hr />
-                {content}
-              </Card.Content>
-            </Card>
+            <FlipInX
+              duration="2s"
+              component={() => (
+                <Card key={repo.id} style={{ boxShadow: "var(--shadow)" }}>
+                  <Card.Content>
+                    <h4 style={{ color: "#e91e63" }}>
+                      {repo.name.toUpperCase()}
+                    </h4>
+                    <Card.Meta>
+                      Last Update: {repo.pushed_at.slice(0, 10)}
+                    </Card.Meta>
+                    <Card.Description>{repo.description}</Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <a id="projectLinks" target="_blank" href={repo.html_url}>
+                      GitHub
+                    </a>
+                    <hr />
+                    {content}
+                  </Card.Content>
+                </Card>
+              )}
+            />
           );
         });
         this.setState(prevState => ({
