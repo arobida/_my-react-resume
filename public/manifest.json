@@ -4,9 +4,9 @@
   "start_url": "./index.html",
   "icons": [
     {
-      "src": "waving-hand.jpg",
+      "src": "waving-hand.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/jpg"
+      "type": "image/png"
     }
   ],
   "display": "standalone"
