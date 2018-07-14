@@ -173,7 +173,6 @@ class App extends Component {
                     )}
                   />
                 </Switch>
-                />
               </div>
             </Router>
           </Grid.Column>
