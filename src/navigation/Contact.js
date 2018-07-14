@@ -65,17 +65,12 @@ class Contact extends Component {
     return (
       <div id="contactMe">
         <div>
-          <Form
-            name="contact"
-            method="post"
-            data-netlify="true"
-            onSubmit={this.handleSubmit}
-          >
+          <Form name="contact" onSubmit={this.handleSubmit}>
             <input type="hidden" name="form-name" value="contact" />
             <Form.Input
               control={Input}
               name="name"
-              type="name"
+              type="text"
               value={name}
               onChange={this.handleChange}
               label="Name"
@@ -85,7 +80,6 @@ class Contact extends Component {
             <Form.Input
               control={TextArea}
               name="message"
-              type="message"
               value={message}
               onChange={this.handleChange}
               label="About"
