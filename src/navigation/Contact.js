@@ -71,12 +71,7 @@ class Contact extends Component {
             data-netlify="true"
             onSubmit={this.handleSubmit}
           >
-            <input
-              type="hidden"
-              data-netlify-honeypot="bot-field"
-              name="form-name"
-              value="contact"
-            />
+            <input type="hidden" name="form-name" value="contact" />
             <Form.Input
               control={Input}
               name="name"
@@ -107,7 +102,7 @@ class Contact extends Component {
               placeholder="joe@schmoe.com"
               required
             />
-            <Button animated color="orange" type="Submit">
+            <Button animated color="orange" type="submit">
               <Button.Content visible>
                 Submit <Icon name="send outline" />
               </Button.Content>
