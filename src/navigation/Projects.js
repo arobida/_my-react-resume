@@ -41,10 +41,6 @@ class Projects extends Component {
 					// con rendering for repos with the _ character this is how I filter my repos so that I only show the ones I want
 					let impRepos;
 					let repos = repo.name;
-					const repoDesc = repo.description;
-					if (repos.match(/_/gi) == "_") {
-						impRepos = repo.name;
-					}
 					// con rendering the preview link
 					let content;
 					if (repo.homepage == null) {
