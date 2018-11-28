@@ -94,7 +94,7 @@ class App extends Component {
                   <List relax horizontal className="socialList">
                     <List.Item>
                       <a
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         href="https://www.linkedin.com/in/andrew-robida/"
                       >
                         <List.Content>
@@ -104,7 +104,7 @@ class App extends Component {
                       </a>
                     </List.Item>
                     <List.Item>
-                      <a target="_blank" href="https://github.com/arobida">
+                      <a target="_blank" rel="noopener noreferrer" href="https://github.com/arobida">
                         <List.Content>
                           Github
                           <Icon name="github" color="orange" />
@@ -112,7 +112,7 @@ class App extends Component {
                       </a>
                     </List.Item>
                     <List.Item>
-                      <a target="_blank" href="https://twitter.com/theafr86">
+                      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/theafr86">
                         <List.Content>
                           Twitter
                           <Icon name="twitter" color="orange" />
@@ -121,7 +121,7 @@ class App extends Component {
                     </List.Item>
                     <List.Item>
                       <a
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         href="https://docs.google.com/document/d/1o39dLOSHDddG35UzGhXUGovsOAFtau5hAoEYI9Y_gUM/edit?usp=sharing"
                       >
                         <List.Content>

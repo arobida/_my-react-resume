@@ -47,7 +47,7 @@ class Projects extends Component {
 						content = "No preview available";
 					} else {
 						content = (
-							<a id="projectLinks" target="_blank" href={repo.homepage}>
+							<a id="projectLinks" target="_blank" rel="noopener noreferrer" href={repo.homepage}>
 								Preview
 							</a>
 						);
