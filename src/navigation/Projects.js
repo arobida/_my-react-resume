@@ -18,7 +18,8 @@ class Projects extends Component {
 		this.state = {
 			projects: [],
 			loader: true,
-			error: null
+			error: false,
+			errorMessage: null
 		};
 	}
 	componentDidMount() {
@@ -43,7 +44,7 @@ class Projects extends Component {
 					} else {
 						content = (
 							<a id="projectLinks" target="_blank" rel="noopener noreferrer" href={repo.homepage}>
-								Preview
+								View Project
 							</a>
 						);
 					}
@@ -69,7 +70,7 @@ class Projects extends Component {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									GitHub
+									View Code
 								</a>
 								<hr />
 								{content}
