@@ -1,6 +1,5 @@
-import React, { Component, img } from 'react';
-import axios from 'axios';
-import { Button, Icon, Grid, Image, Header, List, Card, Divider, Responsive } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Icon, Grid, Image, List, Card, Divider, Responsive } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 class Profile extends Component {
@@ -30,7 +29,7 @@ class Profile extends Component {
           <Card.Content extra>
             <List horizontal className="socialList">
               <List.Item>
-                <a target="_blank" href="https://www.linkedin.com/in/andrew-robida/">
+                <a target="_blank" rel="noopener noreferrer"href="https://www.linkedin.com/in/andrew-robida/">
                   <List.Content>
                     LinkedIn
                     <Icon name='linkedin' color="orange" />
@@ -38,7 +37,7 @@ class Profile extends Component {
                 </a>
               </List.Item>
               <List.Item>
-                <a target="_blank" href="https://github.com/arobida">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/arobida">
                   <List.Content>
                     Github
                     <Icon name='github' color="orange" />
@@ -46,7 +45,7 @@ class Profile extends Component {
                 </a>
               </List.Item>
               <List.Item>
-                <a target="_blank" href="https://twitter.com/theafr86">
+                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/theafr86">
                   <List.Content>
                     Twitter
                     <Icon name='twitter' color="orange" />
@@ -54,7 +53,7 @@ class Profile extends Component {
                 </a>
               </List.Item>
               <List.Item>
-                <a target="_blank" href="https://docs.google.com/document/d/1o39dLOSHDddG35UzGhXUGovsOAFtau5hAoEYI9Y_gUM/edit?usp=sharing">
+                <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1o39dLOSHDddG35UzGhXUGovsOAFtau5hAoEYI9Y_gUM/edit?usp=sharing">
                   <List.Content>
                     Resume
                     <Icon name='cloud download' color="orange" />

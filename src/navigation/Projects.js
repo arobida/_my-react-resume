@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { FlipInX, FlipOutX } from "animate-components";
+import { FlipInX } from "animate-components";
 import {
 	Button,
 	Icon,
@@ -34,13 +34,8 @@ class Projects extends Component {
 			url: url
 		})
 			.then(res => {
-				var id = res.data.id;
 				console.log(typeof res, res);
 				let project = res.data.map(repo => {
-					let card;
-					// con rendering for repos with the _ character this is how I filter my repos so that I only show the ones I want
-					let impRepos;
-					let repos = repo.name;
 					// con rendering the preview link
 					let content;
 					if (repo.homepage == null) {
@@ -52,12 +47,6 @@ class Projects extends Component {
 							</a>
 						);
 					}
-
-					const handPicked = res.data.filter(
-						repo.description.includes("portfolio: ")
-					);
-					console.log(handPicked);
-					console.log(repo.description.includes("portfolio: "));
 
 					return (
 						<FlipInX
@@ -97,11 +86,10 @@ class Projects extends Component {
 				}));
 				console.log("state", this.state.projects);
 			})
-			.catch(error => {
-				console.log(error);
-				error = "error";
+			.catch(err => {
+				console.log(err);
 				this.setState(prevState => ({
-					loader: (prevState.error = true)
+					error: (prevState.error = true)
 				}));
 			});
 	}
@@ -109,32 +97,32 @@ class Projects extends Component {
 	render() {
 		let content;
 
-		if (this.state.loader == true) {
+		if (this.state.loader === true) {
 			content = (
 				<Loader active inverted style={{ color: "white" }}>
 					Loading...
 				</Loader>
 			);
-		} else if (this.state.loader == false) {
+		} else if (this.state.loader === false) {
 			content = this.state.projects;
-		} else if (this.state.error == true) {
-			content = (
-				<Modal basic size="small" closeIcon>
-					<Header icon="error" content="Request Failed" />
-					<Modal.Content>
-						<p>
-							The request has failed...Please try refreshing this page or come
-							back later.
-						</p>
-					</Modal.Content>
-					<Modal.Actions>
-						<Button color="green" inverted>
-							<Icon name="checkmark" /> Okay
-						</Button>
-					</Modal.Actions>
-				</Modal>
-			);
-		}
+		} //else {
+		// 	content = (
+		// 		<Modal basic size="small" closeIcon>
+		// 			<Header icon="error" content="Request Failed" />
+		// 			<Modal.Content>
+		// 				<p>
+		// 					The request has failed...Please try refreshing this page or come
+		// 					back later.
+		// 				</p>
+		// 			</Modal.Content>
+		// 			<Modal.Actions>
+		// 				<Button color="green" inverted>
+		// 					<Icon name="checkmark" /> Okay
+		// 				</Button>
+		// 			</Modal.Actions>
+		// 		</Modal>
+		// 	);
+		// }
 
 		return (
 			<div id="projects">
