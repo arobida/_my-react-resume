@@ -41,27 +41,12 @@ class App extends Component {
           Andrew's React Resume
         </Responsive>
         <Responsive as="div" id="mobileMenu" maxWidth={650}>
-          <Button
-            id="scrollTopBtn"
-            circular
-            inverted
-            basic
-            color="orange"
-            icon="up arrow"
-            onClick={() => window.scrollTo(0, 0)}
-          />
-          <Button
-            id="contactBtn"
-            size="small"
-            inverted
-            basic
-            color="orange"
-            onClick={this.handleOpen}
-          >
-            <Button.Content>
-              <Icon name="address card" size="big" color="orange" />
-            </Button.Content>
-          </Button>
+          <a id="scrollTopBtn" href="#" onClick={() => window.scrollTo(0, 0)}>
+          <Icon name="up arrow" color="orange" circular />
+          </a>
+          <a id="contactBtn" href="#" onClick={this.handleOpen}>
+          <Icon name="address card" size="big" color="orange"/>
+          </a>
           <Modal
             open={this.state.modalOpen}
             onClose={this.handleClose}

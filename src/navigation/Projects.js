@@ -39,7 +39,7 @@ class Projects extends Component {
 				let project = res.data.map(repo => {
 					// con rendering the preview link
 					let content;
-					if (repo.homepage == null) {
+					if (repo.homepage === null) {
 						content = "No preview available";
 					} else {
 						content = (
