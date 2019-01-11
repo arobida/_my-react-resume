@@ -1,7 +1,7 @@
 {
 	"name": "react-portfolio",
 	"description": "My portfolio site built in react, react-router, semantic-ui, and axios",
-	"homepage": "https://arfolio.netlify.com/",
+	"homepage": "https://arobida.com/",
 	"dependencies": {
 		"animate-components": "^1.4.8",
 		"animate-keyframes": "^0.1.6",
