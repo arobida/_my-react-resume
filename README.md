@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/username/_my-react-resume.svg?branch=master)](https://travis-ci.com/username/_my-react-resume)
+[![Build Status](https://travis-ci.com/arobida/_my-react-resume.svg?branch=master)](https://travis-ci.com/arobida/_my-react-resume)
 # React Portfolio 🕴
 A portfolio made in react check it out!
 # Made with 💌
